@@ -6,7 +6,12 @@
 
     $postsPublished= array();
     $postsTitle = "Posts Recentes";
-    if(isset($_POST["search-term"])) {
+    
+    if(isset($_GET["topic_id"])) {
+        $id = $_GET["topic_id"];
+        $postsPublished = selectAllPostsTopic($id);
+        $postsTitle = "Sua busca: '" . $_GET["name"] . "'";
+    }else if(isset($_POST["search-term"])) {
         $postsTitle = "Sua busca: '" . $_POST["search-term"] . "'";
         $postsPublished = searchPosts($_POST["search-term"]);
         //dd($postsPublished);
@@ -62,7 +67,7 @@
 
         <?php foreach($postsPublished as $key => $post): ?>
             <div class="post">
-                <a href="<?= BASE_URL . '/single-post.php?id='. $post["id"] ?>"><img src="<?php echo BASE_URL . '/assets/imgUpload/' . $post["image"]; ?>" alt="" class="image hover-img"></a>
+                <a href="<?= BASE_URL . '/single-post.php?post_id='. $post["id"] ?>"><img src="<?php echo BASE_URL . '/assets/imgUpload/' . $post["image"]; ?>" alt="" class="image hover-img"></a>
                 <div class="date">
                     <i class="far fa-clock"></i>
                     <span><?= date('F j, Y', strtotime($post["created_at"])); ?></span>

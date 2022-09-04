@@ -18,12 +18,25 @@ function selectAllPosts()
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;
 }
+
 function selectAllPostsPublished()
 {
     global $pdo;
     $sql = "SELECT p.*, u.username FROM posts AS p JOIN users AS u ON p.user_id = u.id  WHERE p.published = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(1, 1, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+
+function selectAllPostsTopic($id)
+{
+    global $pdo;
+    $sql = "SELECT p.*, u.username FROM posts AS p JOIN users AS u ON p.user_id = u.id  WHERE p.published = ? AND topic_id = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(1, 1, PDO::PARAM_INT);
+    $stmt->bindValue(2, $id, PDO::PARAM_INT);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $result;

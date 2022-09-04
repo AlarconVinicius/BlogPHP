@@ -20,7 +20,7 @@
         <div class="category">
             <?php foreach($topics as $key => $topic): ?>
                 
-                <a href="#"> <?= $topic["name"]?> <span>42</span></a>
+                <a href="<?= BASE_URL . '/index.php?topic_id='. $topic["id"] . '&name=' . $topic["name"]?>"> <?= $topic["name"]?> <span>42</span></a>
                 
             <?php endforeach; ?>
             <!-- <a href="#"> photography <span>75</span> </a>
@@ -38,22 +38,13 @@
     <div class="box">
         <h3 class="title">popular posts</h3>
         <div class="p-post">
-            <a href="#">
-                <h3>01. blog title goes here</h3>
-                <span><i class="far fa-clock"></i>1st may, 2021</span>
-            </a>
-            <a href="#">
-                <h3>02. blog title goes here</h3>
-                <span><i class="far fa-clock"></i>1st may, 2021</span>
-            </a>
-            <a href="#">
-                <h3>03. blog title goes here</h3>
-                <span><i class="far fa-clock"></i>1st may, 2021</span>
-            </a>
-            <a href="#">
-                <h3>04. blog title goes here</h3>
-                <span><i class="far fa-clock"></i>1st may, 2021</span>
-            </a>
+            <?php foreach($postsPublished as $key => $post): ?>
+                <a href="#">
+                    <h3><?= $key +1 . "." . $post["title"]?></h3>
+                    <span><i class="far fa-clock"></i><?= date('F j, Y', strtotime($post["created_at"])); ?></span>
+                </a>
+            <?php endforeach; ?>
+            
         </div>
     </div>
 

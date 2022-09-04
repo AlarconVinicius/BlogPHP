@@ -4,8 +4,8 @@
     include(ROOT_PATH . "/app/models/Post.php");
     require(ROOT_PATH . "/app/controllers/topics.php");
 
-    if(isset($_GET["id"])) {
-        $id = $_GET["id"];
+    if(isset($_GET["post_id"])) {
+        $id = $_GET["post_id"];
         $post = selectOnePostAuthor($id);
     }
     $postsPublished= array();
