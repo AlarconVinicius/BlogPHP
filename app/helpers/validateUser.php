@@ -2,7 +2,7 @@
 
 function validateUser($user) {
     $errors = array();
-    if(empty($user['email']) || empty($user['name']) || empty($user['password'])) {
+    if(empty($user['email']) || empty($user['username']) || empty($user['password'])) {
         array_push($errors, 'Preencha todos os campos por favor!');
     }
     if($user['password'] != $user['passconfirmation']) {
@@ -11,8 +11,13 @@ function validateUser($user) {
     
     $emailExists = verifyEmailExists($user['email']);
 
-    if($emailExists === true) {
-        array_push($errors, 'Esse email já existe! Tente outro, por favor!');
+    if($emailExists != null) {
+        if(isset($user["user-btn-upd"]) && $emailExists["id"] != $user["id"]) {
+            array_push($errors, 'Esse email já existe! Tente outro, por favor!');
+        }
+        if(isset($user["user-btn"])) {
+            array_push($errors, 'Esse email já existe! Tente outro, por favor!');
+        }
     }
 
     return $errors;

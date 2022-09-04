@@ -1,6 +1,6 @@
 <?php 
     include("../../path.php"); 
-    include(ROOT_PATH . "/app/models/User.php");
+    require(ROOT_PATH . "/app/controllers/posts.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -50,26 +50,22 @@
                         <th colspan="3">Action</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>First post</td>
-                            <td>Vinicius Alarcon</td>
-                            <td>
-                                <a href="#" class="edit">Edit</a>
-                                <a href="#" class="delete">Delete</a>
-                                <a href="#" class="publish">Publish</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Second post</td>
-                            <td>Vinicius Alarcon</td>
-                            <td>
-                                <a href="#" class="edit">Edit</a>
-                                <a href="#" class="delete">Delete</a>
-                                <a href="#" class="publish">Publish</a>
-                            </td>
-                        </tr>
+                        <?php foreach ($posts as $key => $post): ?>
+                            <tr>
+                                <td><?= $key + 1?></td>
+                                <td><?= $post["title"]?></td>
+                                <td><?= $post["user_id"]["username"]?></td>
+                                <td>
+                                    <a href="<?= BASE_URL . '/admin/posts/edit-post.php?id='. $post["id"]?>" class="edit">Edit</a>
+                                    <a href="<?= BASE_URL . '/admin/posts/index.php?del_id='. $post["id"]?>" class="delete">Delete</a>
+                                    <?php if($post["published"]): ?>
+                                        <a href="<?= BASE_URL . '/admin/posts/edit-post.php?published=0&p_id=' . $post["id"]?>" class="unpublish">Unpublish</a>
+                                    <?php else: ?>
+                                        <a href="<?= BASE_URL . '/admin/posts/edit-post.php?published=1&p_id=' . $post["id"]?>" class="publish">Publish</a>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

@@ -18,8 +18,12 @@
     <div class="box">
         <h3 class="title">categories</h3>
         <div class="category">
-            <a href="#"> travel <span>42</span></a>
-            <a href="#"> photography <span>75</span> </a>
+            <?php foreach($topics as $key => $topic): ?>
+                
+                <a href="#"> <?= $topic["name"]?> <span>42</span></a>
+                
+            <?php endforeach; ?>
+            <!-- <a href="#"> photography <span>75</span> </a>
             <a href="#"> technology <span>22</span> </a>
             <a href="#"> fashion <span>17</span> </a>
             <a href="#"> study <span>48</span> </a>
@@ -27,7 +31,7 @@
             <a href="#"> music <span>59</span> </a>
             <a href="#"> public <span>12</span> </a>
             <a href="#"> business <span>32</span> </a>
-            <a href="#"> sports <span>18</span> </a>
+            <a href="#"> sports <span>18</span> </a> -->
         </div>
     </div>
 

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar</title>
+    <title>Receitinhas | Registrar</title>
     <!-- Link CSS -->
     <link rel="stylesheet" href="assets/css/LoginRegister.css">
     <!-- Link Font Awesome -->
@@ -26,7 +26,7 @@
           </div>
           <div class="full-box">
               <label for="name">Nome</label>
-              <input type="text" name="name" id="name" value="<?= $name ?>" placeholder="Digite seu nome" data-required data-min-length="3" data-max-length="16">
+              <input type="text" name="username" id="name" value="<?= $username ?>" placeholder="Digite seu nome" data-required data-min-length="3" data-max-length="16">
           </div>
           <div class="half-box spacing">
             <label for="lastname">Senha</label>
@@ -46,7 +46,7 @@
         </form>
         <div id="register-container" style="text-align: center;">
             <p>Já possui uma conta?</p>
-            <a href="login.html">Entrar</a>
+            <a href="<?= BASE_URL . '/login.php'?>">Entrar</a>
         </div>
     </div>
 </body>

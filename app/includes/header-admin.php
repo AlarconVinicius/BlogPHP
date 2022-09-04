@@ -1,13 +1,16 @@
 <header class="header">
 
-    <a href="#" class="logo"><span>R</span>eceitinhas</a>
+    <a href="<?= BASE_URL . '/admin/dashboard.php'?>" class="logo"><span>R</span>eceitinhas</a>
 
     <?php include(ROOT_PATH . "/app/includes/message.php"); ?>
 
     <nav class="navbar">
-        <a href="<?= BASE_URL . '/index.php'?>">Public</a>
-        <a href="<?= BASE_URL . '/admin/posts/index.php'?>">Dashboard</a>
-        <a href="<?= BASE_URL . '/logout.php'?>" style="color: red;">Sair</a>
+        <?php if(isset($_SESSION["id"])): ?>
+            <a href="<?= BASE_URL . '/index.php'?>">Public</a>
+            <a href="<?= BASE_URL . '/admin/dashboard.php'?>">Dashboard</a>
+            <a href="<?= BASE_URL . '/logout.php'?>" style="color: red;">Sair</a>
+            <a class="header-name"><?= $_SESSION["username"]?></a>
+        <?php endif; ?>
     </nav>
 
     <div class="icons">

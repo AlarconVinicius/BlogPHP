@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Add User</title>
+    <title>Admin | Edit User</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -44,10 +44,11 @@
            </div>
             
             <div class="main-content">
-                <h1 class="title">Add User</h1>
+                <h1 class="title">Edit User</h1>
                 <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
                 
-                <form action="create-user.php" method="post">
+                <form action="edit-user.php" method="post">
+                    <input type="hidden" name="id" value="<?= $id ?>">
                     <div class="form-group">
                         <label for="username">Nome</label>
                         <input type="text" name="username" value="<?= $username ?>" class="input-text">
@@ -58,11 +59,11 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Senha</label>
-                        <input type="password" name="password" value="<?= $password ?>" class="input-text">
+                        <input type="password" name="password" class="input-text">
                     </div>
                     <div class="form-group">
                         <label for="passconfirmation">Confirmar Senha</label>
-                        <input type="password" name="passconfirmation" value="<?= $passconfirmation ?>" class="input-text">
+                        <input type="password" name="passconfirmation" class="input-text">
                     </div>
                     <div class="form-group">
                         <?php if(isset($admin) && $admin == 1):?>
@@ -78,7 +79,7 @@
                         <?php endif;?>
                     </div>
                     <div class="form-group">
-                        <button type="submit" name="user-btn" class="btn">Add User</button>
+                        <button type="submit" name="user-btn-upd" class="btn">Update User</button>
                     </div>
                 </form>
             </div>

@@ -1,13 +1,13 @@
 <?php
-session_start();
+@session_start();
 // require("../../path.php");
 require(ROOT_PATH . "/app/database/connect.php");
 
-function dd($value)  //Only for testing
-{
-    echo '<pre>', print_r($value, true), '</pre>';
-    die();
-}
+// function dd($value)  //Only for testing
+// {
+//     echo '<pre>', print_r($value, true), '</pre>';
+//     die();
+// }
 
 function loginUser($user)
 {
@@ -17,7 +17,7 @@ function loginUser($user)
     $_SESSION['message'] = 'Você logou no sistema!';
     $_SESSION['type'] = 'success';
     if($_SESSION['admin']) {
-        header('location: ' . BASE_URL . '/admin/posts/index.php');
+        header('location: ' . BASE_URL . '/admin/dashboard.php');
         
     } else {
         header('location: ' . BASE_URL . '/index.php');
@@ -66,13 +66,14 @@ function verifyEmailExists($email)
     $stmt->bindValue(1, $email, PDO::PARAM_STR);
     $stmt->execute();
     $result = $stmt->fetch();
-    if($result == null) {
-        $existe = false;
-        return $existe;
-    } else {
-        $existe = true;
-        return $existe;
-    }
+    return $result;
+    // if($result == null) {
+    //     $existe = false;
+    //     return $existe;
+    // } else {
+    //     $existe = true;
+    //     return $existe;
+    // }
 }
 
 function createUser($admin, $username, $email, $password) 

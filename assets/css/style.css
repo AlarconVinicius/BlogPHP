@@ -242,7 +242,20 @@ section{
 .container .posts-container .links a:hover i{
     color:var(--orange);
 }
+/* SINGLE POST REPETING CSS */
+.single-container {
+    padding: 9rem;
+}
+.single-post-title {
+    text-align: center;
+}
+.single-post-text {
+    text-align: center;
+    padding: 1rem 5rem !important;
+    margin: 1rem 5rem ;
+}
 
+/* SINGLE POST REPETING CSS END */
 .container .sidebar .box{
     border:var(--border);
     border-radius: .5rem;

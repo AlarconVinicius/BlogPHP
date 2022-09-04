@@ -1,6 +1,6 @@
 <?php 
     include("../../path.php"); 
-    include(ROOT_PATH . "/app/models/User.php");
+    require(ROOT_PATH . "/app/controllers/topics.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -49,22 +49,16 @@
                         <th colspan="2">Action</th>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>1</td>
-                            <td>Sobremesa</td>
-                            <td>
-                                <a href="#" class="edit">Edit</a>
-                                <a href="#" class="delete">Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Lanche</td>
-                            <td>
-                                <a href="#" class="edit">Edit</a>
-                                <a href="#" class="delete">Delete</a>
-                            </td>
-                        </tr>
+                        <?php foreach($topics as $key => $topic): ?>
+                            <tr>
+                                <td><?= $key + 1?></td>
+                                <td><?= $topic["name"]?></td>
+                                <td>
+                                    <a href="<?= BASE_URL . '/admin/topics/edit-topic.php?id='. $topic["id"]?>" class="edit">Edit</a>
+                                    <a href="<?= BASE_URL . '/admin/topics/index.php?del_id='. $topic["id"]?>" class="delete">Delete</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

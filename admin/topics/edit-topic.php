@@ -1,6 +1,6 @@
 <?php 
     include("../../path.php"); 
-    require(ROOT_PATH . "/app/controllers/users.php");
+    require(ROOT_PATH . "/app/controllers/topics.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Add User</title>
+    <title>Admin | Edit Topic</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -39,46 +39,26 @@
 
         <div class="content">
            <div class="buttons">
-                <a href="<?= BASE_URL . '/admin/users/create-user.php'?>" class="btn">Add User</a>
-                <a href="<?= BASE_URL . '/admin/users/index.php'?>" class="btn">View Users</a>
+                <a href="<?= BASE_URL . '/admin/topics/create-topic.php'?>" class="btn">Add Topic</a>
+                <a href="<?= BASE_URL . '/admin/topics/index.php'?>" class="btn">View Topics</a>
            </div>
             
             <div class="main-content">
-                <h1 class="title">Add User</h1>
+                <h1 class="title">Edit Topic</h1>
                 <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
                 
-                <form action="create-user.php" method="post">
+                <form action="edit-topic.php" method="post">
+                    <input type="hidden" name="id" value="<?= $id; ?>">
                     <div class="form-group">
-                        <label for="username">Nome</label>
-                        <input type="text" name="username" value="<?= $username ?>" class="input-text">
+                        <label for="name">Nome</label>
+                        <input type="text" name="name" value="<?= $name; ?>" class="input-text">
                     </div>
                     <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="text" name="email" value="<?= $email ?>" class="input-text">
+                        <label for="description">Descrição</label>
+                        <textarea name="description" id="body" class="input-text"><?= $description; ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="password">Senha</label>
-                        <input type="password" name="password" value="<?= $password ?>" class="input-text">
-                    </div>
-                    <div class="form-group">
-                        <label for="passconfirmation">Confirmar Senha</label>
-                        <input type="password" name="passconfirmation" value="<?= $passconfirmation ?>" class="input-text">
-                    </div>
-                    <div class="form-group">
-                        <?php if(isset($admin) && $admin == 1):?>
-                            <label>
-                                <input type="checkbox" name="admin" checked>
-                                Admin
-                            </label>
-                        <?php else:?>
-                            <label>
-                                <input type="checkbox" name="admin">
-                                Admin
-                            </label>
-                        <?php endif;?>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" name="user-btn" class="btn">Add User</button>
+                        <button type="submit" name="topic-btn-upd" class="btn">Update Topic</button>
                     </div>
                 </form>
             </div>

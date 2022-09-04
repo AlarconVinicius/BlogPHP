@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Receitinhas | Login</title>
     <!-- Link CSS -->
     <link rel="stylesheet" href="assets/css/LoginRegister.css">
     <!-- Link Font Awesome -->
@@ -35,7 +35,7 @@
         </div>
         <div id="register-container">
           <p>Ainda não tem uma conta?</p>
-          <a href="register.html">Registrar</a>
+          <a href="<?= BASE_URL . '/register.php'?>">Registrar</a>
         </div>
     </div>
 </body>

@@ -1,6 +1,6 @@
 <?php 
     include("../../path.php"); 
-    include(ROOT_PATH . "/app/models/User.php");
+    require(ROOT_PATH . "/app/controllers/users.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -51,26 +51,18 @@
                         <th colspan="2">Action</th>
                     </thead>
                     <tbody>
+                        <?php foreach ($users as $key => $user): ?>
                         <tr>
-                            <td>1</td>
-                            <td>Vinícius Alarcon</td>
-                            <td>alarcon@gmail.com</td>
-                            <td>admin</td>
+                            <td><?= $key + 1?></td>
+                            <td><?= $user["username"]?></td>
+                            <td><?= $user["email"]?></td>
+                            <td><?= $user["admin"] == 1 ? "Admin" : "Usuário";?></td>
                             <td>
-                                <a href="#" class="edit">Edit</a>
-                                <a href="#" class="delete">Delete</a>
+                                <a href="<?= BASE_URL . '/admin/users/edit-user.php?id='. $user["id"]?>" class="edit">Edit</a>
+                                <a href="<?= BASE_URL . '/admin/users/index.php?del_id='. $user["id"]?>" class="delete">Delete</a>
                             </td>
                         </tr>
-                        <tr>
-                        <td>1</td>
-                            <td>Vinícius Alarcon</td>
-                            <td>alarcon@gmail.com</td>
-                            <td>admin</td>
-                            <td>
-                                <a href="#" class="edit">Edit</a>
-                                <a href="#" class="delete">Delete</a>
-                            </td>
-                        </tr>
+                        <?php endforeach; ?>    
                     </tbody>
                 </table>
             </div>

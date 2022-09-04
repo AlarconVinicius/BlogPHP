@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Add Post</title>
+    <title>Admin | Edit Post</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -44,21 +44,22 @@
            </div>
             
             <div class="main-content">
-                <h1 class="title">Create Post</h1>
+                <h1 class="title">Edit Post</h1>
                 <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
                 
-                <form action="create-post.php" method="post" enctype="multipart/form-data">
+                <form action="edit-post.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?= $id; ?>">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" name="title" value="<?= $title ?>" class="input-text">
+                        <input type="text" name="title" value="<?= $title; ?>" class="input-text">
                     </div>
                     <div class="form-group">
                         <label for="body">Body</label>
-                        <textarea name="body" id="body" class="input-text"><?= $body ?></textarea>
+                        <textarea name="body" id="body" class="input-text"><?= $body; ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>
-                        <input type="file" name="image" class="input-text">
+                        <input type="file" name="image" value="<?= $image; ?>" class="input-text">
                     </div>
                     <div class="form-group">
                         <label for="topic_id">Topic</label>
@@ -66,9 +67,9 @@
                             <option value=""></option>
                             <?php foreach($topics as $key => $topic): ?>
                                 <?php if(!empty($topic_id) && $topic_id == $topic['id']): ?>
-                                    <option selected value="<?= $topic['id'] ?>"><?= $topic['name'] ?></option>
+                                    <option selected value="<?= $topic['id']; ?>"><?= $topic['name']; ?></option>
                                 <?php else: ?>
-                                    <option value="<?= $topic['id'] ?>"><?= $topic['name'] ?></option>
+                                    <option value="<?= $topic['id']; ?>"><?= $topic['name']; ?></option>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </select>
@@ -88,7 +89,7 @@
                         <?php endif; ?>
                     </div>
                     <div class="form-group">
-                        <button type="submit" name="post-btn" class="btn">Add Post</button>
+                        <button type="submit" name="post-btn-upd" class="btn">Update Post</button>
                     </div>
                 </form>
             </div>

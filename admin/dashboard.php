@@ -1,6 +1,6 @@
 <?php 
-    include("../../path.php"); 
-    require(ROOT_PATH . "/app/controllers/topics.php");
+    include("../path.php"); 
+    require(ROOT_PATH . "/app/controllers/users.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Add Topic</title>
+    <title>Admin | Dashboard</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -17,7 +17,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/35.0.1/classic/ckeditor.js"></script>
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/admin.css">
 
 </head>
 <body>
@@ -38,28 +38,12 @@
     <div class="content-container">
 
         <div class="content">
-           <div class="buttons">
-                <a href="<?= BASE_URL . '/admin/topics/create-topic.php'?>" class="btn">Add Topic</a>
-                <a href="<?= BASE_URL . '/admin/topics/index.php'?>" class="btn">View Topics</a>
-           </div>
             
             <div class="main-content">
-                <h1 class="title">Add Topic</h1>
-                <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
+                <h1 class="title">Dashboard</h1>
+                <?php include(ROOT_PATH . "/app/includes/message.php"); ?>
                 
-                <form action="create-topic.php" method="post">
-                    <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" name="name" value="<?= $name; ?>" class="input-text">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Descrição</label>
-                        <textarea name="description" id="body" class="input-text"><?= $description; ?></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" name="topic-btn" class="btn">Add Topic</button>
-                    </div>
-                </form>
+                
             </div>
             
         </div>
@@ -92,7 +76,7 @@ ClassicEditor
         console.log( error );
     } );
 </script>
-<script src="../../assets/js/scripts.js"></script>
+<script src="../assets/js/scripts.js"></script>
     
 </body>
 </html>
