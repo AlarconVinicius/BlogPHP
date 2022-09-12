@@ -1,5 +1,6 @@
 <?php 
     require(ROOT_PATH . "/app/models/User.php");
+    require(ROOT_PATH . "/app/middleware/middleware.php");
     require(ROOT_PATH . "/app/helpers/validateUser.php");
 
     $users = selectAllUsers();
@@ -61,6 +62,7 @@
     }
 
     if(isset($_POST["user-btn-upd"])) {
+        usersOnly();
         
         $errors = validateUser($_POST);
         
@@ -97,6 +99,7 @@
     }
 
     if(isset($_GET["del_id"])) {
+        usersOnly();
         $id = $_GET["del_id"];
         $topic = deleteUser($id);
         $_SESSION["message"] = "Usuário deletado com sucesso!";

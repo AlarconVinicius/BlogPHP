@@ -1,6 +1,7 @@
 <?php 
     require(ROOT_PATH . "/app/models/Post.php");
     require(ROOT_PATH . "/app/models/Topic.php");
+    require(ROOT_PATH . "/app/middleware/middleware.php");
     require(ROOT_PATH . "/app/helpers/validatePost.php");
 
     $id = "";
@@ -15,6 +16,7 @@
     $posts = selectAllPosts();
 
     if(isset($_POST["post-btn"])) {
+        usersOnly();
         $errors = validatePost($_POST);
 
         if(!empty($_FILES['image']['name'])) {
@@ -54,6 +56,7 @@
     }
 
     if(isset($_POST["post-btn-upd"])) {
+        usersOnly();
         $errors = validatePost($_POST);
 
         if(!empty($_FILES['image']['name'])) {
@@ -95,6 +98,7 @@
     }
 
     if(isset($_GET["published"]) && isset($_GET["p_id"])) {
+        usersOnly();
         $id = $_GET["p_id"];
         $published = $_GET["published"];
         $post = selectOnePost($id);
@@ -123,6 +127,7 @@
         $published = $post["published"];
     }
     if(isset($_GET["del_id"])) {
+        usersOnly();
         $id = $_GET["del_id"];
         $topic = deletePost($id);
         $_SESSION["message"] = "Post deletado com sucesso!";

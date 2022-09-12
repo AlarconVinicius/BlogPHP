@@ -1,6 +1,7 @@
 <?php 
     include("../../path.php"); 
     require(ROOT_PATH . "/app/controllers/users.php");
+    usersOnly();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

@@ -12,7 +12,7 @@ function dd($value)  //Only for testing
 function selectAllPosts()
 {
     global $pdo;
-    $sql = "SELECT * FROM posts";
+    $sql = "SELECT p.*, u.username FROM posts AS p JOIN users AS u ON p.user_id = u.id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

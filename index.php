@@ -17,6 +17,8 @@
         //dd($postsPublished);
     } else {
         $postsPublished = selectAllPostsPublished();
+        $postsPublished = array_multisort($postsPublished, SORT_DESC, $postsPublished);
+        dd($postsPublished);
     }
 ?>
 <!DOCTYPE html>
@@ -72,7 +74,7 @@
                     <i class="far fa-clock"></i>
                     <span><?= date('F j, Y', strtotime($post["created_at"])); ?></span>
                 </div>
-                <a href="#"><h3 class="title"><?= $post["title"] ?></h3></a>
+                <a href="<?= BASE_URL . '/single-post.php?post_id='. $post["id"] ?>"><h3 class="title"><?= $post["title"] ?></h3></a>
                 <!-- <p class="text"><?= html_entity_decode(substr($post["body"], 0, 150) . "..."); ?></p> -->
                 <div class="links">
                     <a href="#" class="user">

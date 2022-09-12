@@ -1,6 +1,8 @@
 <?php 
     include("../../path.php"); 
     require(ROOT_PATH . "/app/controllers/posts.php");
+    usersOnly();
+    $postsPublished = selectAllPostsPublished();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -54,7 +56,7 @@
                             <tr>
                                 <td><?= $key + 1?></td>
                                 <td><?= $post["title"]?></td>
-                                <td><?= $post["user_id"]["username"]?></td>
+                                <td><?= $post["username"]?></td>
                                 <td>
                                     <a href="<?= BASE_URL . '/admin/posts/edit-post.php?id='. $post["id"]?>" class="edit">Edit</a>
                                     <a href="<?= BASE_URL . '/admin/posts/index.php?del_id='. $post["id"]?>" class="delete">Delete</a>

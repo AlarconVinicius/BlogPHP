@@ -1,5 +1,6 @@
 <?php 
     require(ROOT_PATH . "/app/models/Topic.php");
+    require(ROOT_PATH . "/app/middleware/middleware.php");
     require(ROOT_PATH . "/app/helpers/validateTopic.php");
 
     $id = "";
@@ -10,6 +11,7 @@
     $topics = selectAllTopics();
 
     if(isset($_POST["topic-btn"])) {
+        usersOnly();
          
         $errors = validateTopic($_POST);
 
@@ -28,6 +30,7 @@
     }
 
     if(isset($_GET["del_id"])) {
+        usersOnly();
         $id = $_GET["del_id"];
         $topic = deleteTopic($id);
         $_SESSION["message"] = "Tópico deletado com sucesso!";
@@ -46,6 +49,7 @@
     
 
     if(isset($_POST["topic-btn-upd"])) {
+        usersOnly();
          
         $errors = validateTopic($_POST);
 
