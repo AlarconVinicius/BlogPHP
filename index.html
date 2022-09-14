@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitinhas | Home</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="index.html" class="logo"><span>R</span>eceitinhas</a>
+
+    <nav class="navbar">
+        <a href="#banner">início</a>
+        <a href="#posts">receitas</a>
+        <a href="#posts">sobre</a>
+        <a href="#contact">contato</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="#sair" style="color: red;">Sair</a>
+    </nav>
+
+    <div class="icons">
+        <i class="fas fa-bars" id="menu-bars"></i>
+        <i class="fas fa-search" id="search-icon"></i>
+    </div>
+
+    <form action="index.php" method="POST" class="search-form">
+        <input type="search" name="search-term" placeholder="search here..." id="search-box">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+</header>
+
+<!-- header section ends -->
+
+
+
+
+<!-- banner section starts  -->
+
+<section class="banner" id="banner">
+
+    <div class="content">
+        <h3>Venha conferir</h3>
+        <p>Nós postamos nossas melhores receitas aqui, clique para conferir!</p>
+        <a href="#" class="btn">Receitas</a>
+    </div>
+
+</section>
+
+<!-- banner section ends -->
+
+<!-- posts section starts  -->
+
+<section class="container" id="posts">
+
+    <div class="posts-container">
+
+            <div class="post">
+                <a href="single-post.html"><img src="assets/img/cookie.jpg" alt="" class="image hover-img"></a>
+                <div class="date">
+                    <i class="far fa-clock"></i>
+                    <span>01/01/2022</span>
+                </div>
+                <a href="single-post.html"><h3 class="title">Título do Post 1</h3></a>
+                <div class="links">
+                    <a href="#" class="user">
+                        <i class="far fa-user"></i>
+                        <span>Autor: Vinícius Alarcon</span>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="far fa-comment"></i>
+                        <span>(45)</span>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="far fa-share-square"></i>
+                        <span>(29)</span>
+                    </a>
+                </div>
+            </div>
+            <div class="post">
+                <a href="single-post.html"><img src="assets/img/cookie.jpg" alt="" class="image hover-img"></a>
+                <div class="date">
+                    <i class="far fa-clock"></i>
+                    <span>02/01/2022</span>
+                </div>
+                <a href="single-post.html"><h3 class="title">Título do Post 2</h3></a>
+                <div class="links">
+                    <a href="#" class="user">
+                        <i class="far fa-user"></i>
+                        <span>Autor: Vinícius Alarcon</span>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="far fa-comment"></i>
+                        <span>(45)</span>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="far fa-share-square"></i>
+                        <span>(29)</span>
+                    </a>
+                </div>
+            </div>
+            <div class="post">
+                <a href="single-post.html"><img src="assets/img/cookie.jpg" alt="" class="image hover-img"></a>
+                <div class="date">
+                    <i class="far fa-clock"></i>
+                    <span>03/01/2022</span>
+                </div>
+                <a href="single-post.html"><h3 class="title">Título do Post 3</h3></a>
+                <div class="links">
+                    <a href="#" class="user">
+                        <i class="far fa-user"></i>
+                        <span>Autor: Vinícius Alarcon</span>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="far fa-comment"></i>
+                        <span>(45)</span>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="far fa-share-square"></i>
+                        <span>(29)</span>
+                    </a>
+                </div>
+            </div>
+
+    </div>
+
+    <!-- Sidebar starts  -->
+
+    <div class="sidebar">
+
+        <div class="box">
+            <h3 class="title">Sobre nós</h3>
+            <div class="about">
+                <img src="assets/img/user01.png" alt="">
+                <h3>Casal das Receitas</h3>
+                <p>Somos um casal apaixonados por cozinhar!<br>Criamos esse Blog para postarmos nossas receitas.</p>
+                <div class="follow">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="box">
+            <h3 class="title">categories</h3>
+            <div class="category">
+                <a href="#"> Salgado <span>75</span> </a>
+                <a href="#"> Doce <span>22</span> </a>
+                <a href="#"> Bebida <span>17</span> </a>
+            </div>
+        </div>
+    
+        <div class="box">
+            <h3 class="title">popular posts</h3>
+            <div class="p-post">
+                <a href="#">
+                    <h3>Título do Post 1</h3>
+                    <span><i class="far fa-clock"></i>01/01/2022</span>
+                </a>
+                <a href="#">
+                    <h3>Título do Post 2</h3>
+                    <span><i class="far fa-clock"></i>02/01/2022</span>
+                </a>
+                <a href="#">
+                    <h3>Título do Post 3</h3>
+                    <span><i class="far fa-clock"></i>03/01/2022</span>
+                </a>
+                
+            </div>
+        </div>
+    
+    </div>
+
+    <!-- Sidebar ends -->
+    
+
+</section>
+
+<!-- posts section ends -->
+
+<!-- contact section starts  -->
+
+<section class="contact" id="contact">
+
+    <form action="">
+        <h3>contact me</h3>
+        <div class="inputBox">
+            <input type="text" placeholder="name">
+            <input type="email" placeholder="email">
+        </div>
+        <div class="inputBox">
+            <input type="number" placeholder="number">
+            <input type="text" placeholder="subject">
+        </div>
+        <textarea name="" placeholder="message" id="" cols="30" rows="10"></textarea>
+        <input type="submit" value="send message" class="btn">
+    </form>
+
+</section>
+
+<!-- contact section ends -->
+
+<!-- footer section starts  -->
+
+<footer class="footer">
+
+    <div class="follow">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+    </div>
+
+    <div class="credit">criado por <a href="https://www.linkedin.com/in/vin%C3%ADcius-alarcon-52a8a820a/"><span>Vinícius Alarcon</span></a> | todos os direitos reservados</div>
+
+</footer>
+
+<!-- footer section ends -->
+
+<!-- custom js file link  -->
+<script src="assets/js/scripts.js"></script>
+    
+</body>
+</html>
